@@ -1,4 +1,8 @@
 return require('packer').startup(function(use)
+    use { "williamboman/mason.nvim" }
+    use { "nvimtools/none-ls.nvim" }
+    use { "jay-babu/mason-null-ls.nvim" }
+
     use 'wbthomason/packer.nvim'
 
     use {
@@ -6,18 +10,12 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use { "nvim-telescope/telescope.nvim", tag = '0.1.4' }
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use({ 'folke/tokyonight.nvim', as = 'tokyonight' })
 
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua' -- recommended if need floating window support
     use 'neovim/nvim-lspconfig'
-    use 'nvim-treesitter/nvim-treesitter'
-
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -51,4 +49,5 @@ return require('packer').startup(function(use)
     use { "ThePrimeagen/harpoon" }
     use { "tpope/vim-dadbod" }
     use { "tpope/vim-dotenv" }
+    use { "github/copilot.vim" }
 end)

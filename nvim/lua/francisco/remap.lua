@@ -23,3 +23,5 @@ vim.keymap.set("n", "hn", require("harpoon.ui").nav_next)
 vim.keymap.set("n", "hp", require("harpoon.ui").nav_prev)
 vim.keymap.set("n", "<leader>hm", require("harpoon.ui").toggle_quick_menu)
 
+-- copy outside buffer
+vim.keymap.set("v", "<leader>y", [["+Y]])

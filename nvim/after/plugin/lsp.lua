@@ -5,7 +5,10 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   'pyright',
   'gopls',
+  'rust_analyzer',
 })
+
+require('lspconfig').rust_analyzer.setup({})
 
 -- Fix Undefined global 'vim'
 lsp.configure('lua-language-server', {
@@ -18,6 +21,15 @@ lsp.configure('lua-language-server', {
     }
 })
 
+-- Python (pyright + uv)
+lsp.configure('pyright', {
+  cmd = { "uv", "run", "pyright-langserver", "--stdio" },
+  settings = {
+    python = {
+      pythonPath = vim.fn.trim(vim.fn.system("uv python --python")),
+    }
+  }
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
